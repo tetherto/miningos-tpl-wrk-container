@@ -34,7 +34,7 @@ class WrkContainerRack extends WrkRack {
           ['switchContainer', 1], // [action, reqVotes]
           ['switchSocket', 1],
           ['switchCoolingSystem', 1],
-          ['setupPools', 1],
+          ['setupPools', 1]
         ])
         next()
       }
