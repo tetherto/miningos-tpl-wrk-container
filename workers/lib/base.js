@@ -79,6 +79,11 @@ class BaseContainer extends BaseThing {
   async resetAlarm () {
     throw new Error('ERR_NO_IMPL')
   }
+
+  async setupPools (params) {
+    console.log('BaseContainer setupPools', params)
+    this.poolConfig = params.config.id
+  }
 }
 
 module.exports = BaseContainer
