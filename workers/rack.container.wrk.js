@@ -15,9 +15,7 @@ class WrkContainerRack extends WrkRack {
     ]
   }
 
-  async queryThing (req) {
-    const res = await super.queryThing(req)
-
+  async _queryThingHook (req, res) {
     if (req.method === 'setupPools' && res?.success) {
       const thg = this.mem.things[req.id]
       const configId = thg.ctrl.poolConfig
@@ -26,7 +24,11 @@ class WrkContainerRack extends WrkRack {
         await this.saveThingData(thg)
       }
     }
+  }
 
+  async queryThing (req) {
+    const res = await super.queryThing(req)
+    await this._queryThingHook(req)
     return res
   }
 
