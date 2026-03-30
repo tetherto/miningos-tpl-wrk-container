@@ -81,8 +81,8 @@ class BaseContainer extends BaseThing {
   }
 
   async setupPools (params) {
-    console.log('BaseContainer setupPools', params)
     this.poolConfig = params.config.id
+    return { success: true }
   }
 }
 
